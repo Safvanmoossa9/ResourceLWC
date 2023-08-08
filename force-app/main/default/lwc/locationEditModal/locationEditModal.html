@@ -1,0 +1,17 @@
+<template>
+    <lightning-modal is-open={isModalOpen} onclose={closeModal}>
+        <h2>Edit Location</h2>
+        <lightning-combobox
+            label="Location"
+            value={selectedLocation}
+            options={locationOptions}
+            onchange={handleLocationChange}>
+        </lightning-combobox>
+        <div class="slds-m-top_medium">
+            <lightning-button-group>
+                <lightning-button label="Cancel" onclick={closeModal}></lightning-button>
+                <lightning-button label="Save" variant="brand" onclick={handleSave}></lightning-button>
+            </lightning-button-group>
+        </div>
+    </lightning-modal>
+</template>

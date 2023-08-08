@@ -1,0 +1,53 @@
+<template>
+    <lightning-card title="Resource Utilization">
+        <div class="slds-m-around_medium">
+            <lightning-combobox
+            required
+            name= "resource" 
+            label="Resource Name"
+            placeholder="Select Resource"
+            options={resourceNameOptions}
+            value={resourceName}
+            onchange={handleResourceChange}
+            class="slds-align-middle"
+            variant="label-hidden"
+            >
+            
+        </lightning-combobox>
+           
+            <lightning-input name= "hours" type="number" label="Worked Hours" value={hours} onchange={handleInputChange}></lightning-input>
+            <lightning-input name= "sickorcasual" type="number" label="Sick/Casual Leave Days" value={sickCasualLeave} onchange={handleInputChange}></lightning-input>
+            <lightning-input name= "oppleave" type="number" label="Optional Leave Days" value={optionalLeave} onchange={handleInputChange}></lightning-input>
+           
+            <lightning-combobox
+            required
+            name="location"
+            label="Location"
+            placeholder="Choose a place"
+            options={placesOptions}
+            onchange={handlePlaceChange}
+            value="location"
+        ></lightning-combobox>
+          
+                <lightning-combobox
+                    required
+                    name="monthSelection"
+                    label="Select a month"
+                    placeholder="Choose a month"
+                    options={monthsOptions}
+                    onchange={handleMonthChange}
+                ></lightning-combobox>
+
+               
+             
+            <lightning-button label= "Calculate" variant="brand" onclick={calculateUtilization}></lightning-button>
+        </div>
+        <div if:true={showResults}>
+            <p>Resource Name: {resourceName}</p>
+            <p>Expected Hours: {result.expectedHours}</p>
+            <p>Utilization Percentage: {result.utilizationperc}%</p>
+            <p>Lost Hours: {result.lostHours}</p>
+            <p>Additional Hours: {result.addHours}</p>
+        </div>
+    </lightning-card>
+</template>

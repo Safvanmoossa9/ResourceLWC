@@ -1,0 +1,13 @@
+<template>
+    <lightning-icon icon-name="standard:check" alternative-text="Check"></lightning-icon>
+
+    <lightning-card title="Resource Information">
+        <lightning-datatable
+        key-field="id"
+        data={tableData}
+        columns={tableColumns}
+        draft-values={draftValues}
+        onsave={handleSave}>
+        </lightning-datatable>
+    </lightning-card>
+</template>
